@@ -23,7 +23,7 @@ export const TodoInput = ({handleTodo})=>{
     }
     return <>
     <div>
-        <input type="text" placeholder="Enter task" onChange={(e)=>setText(e.target.value)} />
+        <input type="text" placeholder="Enter task" value={text} onChange={(e)=>setText(e.target.value)} />
         <button className="addtodo" onClick={handleClick}>{loading?"loading...":"Add"}</button>
     </div>
     </>
