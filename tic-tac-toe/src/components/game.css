@@ -1,0 +1,22 @@
+.game-main{
+    width: 30%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    padding: 20px;
+}
+.row{
+    display: flex;
+    margin: auto;
+}
+.row>div{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: lightblue;
+}
+.row>div:hover{
+    background-color: cadetblue;
+}
