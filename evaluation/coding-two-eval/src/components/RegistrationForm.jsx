@@ -2,6 +2,9 @@ import styled from "styled-components";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from "react";
+import { successNotification, failureNotification  } from "../customHooks/useNotification";
+import { fetchUser } from "../customHooks/useAsync";
+import axios from "axios";
 const Form = styled.form`
     width:50%;
     margin:auto;
@@ -39,13 +42,26 @@ export const RegistrationForm = ()=>{
 
        // console.log(e)
         e.preventDefault();
-        console.log(user)
+        console.log(user);
+        let registered = fetchUser(user.email);
+        if(!registered){
 
+            axios.post("http://localhost:3001/users",user)
+            .then((res)=>{
+                //let data = {text:"Successfull",time:2000}
+                successNotification("Successfull",2000)
+            })
+            .catch((err)=>{
+                //let data = {text:"Successfull",time:2000}
+                failureNotification("Something Wrong",2000)
+            })
+        }else{
+            alert("user already registred")
+        }
     }
     const handleChange = (e)=>{
-       console.log(e)
     const  {name,value} = e.target;
-       console.log(name,value)
+       
         setUser({...user, [name] : value})
     }
     return <>
