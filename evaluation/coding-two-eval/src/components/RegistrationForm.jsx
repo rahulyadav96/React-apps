@@ -29,19 +29,24 @@ const Form = styled.form`
     
 `
 export const RegistrationForm = ()=>{
-    const [user,setUser] = useState({})
+    const [user,setUser] = useState({
+        fname:"",
+        lname:"",
+        email:"",
+        dob:""
+    })
     const handleSubmit = (e)=>{
 
-        //console.log(e)
+       // console.log(e)
         e.preventDefault();
         console.log(user)
 
     }
     const handleChange = (e)=>{
-        console.log(e)
-        //const [name,value] = e.target;
-
-        //setUser({...user,name:value})
+       console.log(e)
+    const  {name,value} = e.target;
+       console.log(name,value)
+        setUser({...user, [name] : value})
     }
     return <>
     <Form >
