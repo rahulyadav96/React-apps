@@ -5,7 +5,7 @@ import { RegistrationForm } from './components/RegistrationForm';
 function App() {
   return (
     <div className="App">
-     <h1>Hello</h1>
+     <h2>Registaration Form</h2>
      <RegistrationForm/>
     </div>
   );
